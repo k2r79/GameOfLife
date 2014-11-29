@@ -37,36 +37,36 @@ class TestGameOfLife(unittest.TestCase):
 
         self.assertEquals(counter, 5)
 
-    # Count neighboors
+    # Count neighbors
     def test_count_neightboors_with_four_in_the_middle(self):
-        # Four neighboors in the middle
+        # Four neighbors in the middle
         self.game_of_life.spawn(5, 5)
         self.game_of_life.spawn(5, 4)
         self.game_of_life.spawn(5, 6)
         self.game_of_life.spawn(4, 5)
         self.game_of_life.spawn(6, 5)
 
-        self.assertEquals(self.game_of_life.count_neighboors(5, 5), 4)
+        self.assertEquals(self.game_of_life.count_neighbors(5, 5), 4)
 
     def test_count_neightboors_with_two_at_the_bottom_left(self):
-        # Two neighboors at the bottom left
+        # Two neighbors at the bottom left
         self.game_of_life.spawn(9, 9)
         self.game_of_life.spawn(8, 9)
         self.game_of_life.spawn(9, 8)
 
-        self.assertEquals(self.game_of_life.count_neighboors(9, 9), 2)
+        self.assertEquals(self.game_of_life.count_neighbors(9, 9), 2)
 
     def test_count_neightboors_with_three_at_the_top_right(self):
-         # Three neighboors at the top right
+         # Three neighbors at the top right
         self.game_of_life.spawn(0, 0)
         self.game_of_life.spawn(0, 1)
         self.game_of_life.spawn(1, 0)
         self.game_of_life.spawn(1, 1)
 
-        self.assertEquals(self.game_of_life.count_neighboors(0, 0), 3)
+        self.assertEquals(self.game_of_life.count_neighbors(0, 0), 3)
 
-    def test_underpopulation_no_neighboor(self):
-        # No neighboor
+    def test_underpopulation_no_neighbor(self):
+        # No neighbor
         self.game_of_life.spawn(5, 5)
         self.game_of_life.next_frame()
 
@@ -74,8 +74,8 @@ class TestGameOfLife(unittest.TestCase):
         self.assertEquals(map[5][5], 0)
 
     # Underpopulation
-    def test_underpopulation_one_neighboor(self):
-        # One neighboor
+    def test_underpopulation_one_neighbor(self):
+        # One neighbor
         self.game_of_life.spawn(6, 5)
         self.game_of_life.next_frame()
 
@@ -84,7 +84,7 @@ class TestGameOfLife(unittest.TestCase):
 
     # Overpopulation
     def test_overpopulation(self):
-        # Four neighboors
+        # Four neighbors
         self.game_of_life.spawn(5, 5)
         self.game_of_life.spawn(5, 4)
         self.game_of_life.spawn(5, 6)
@@ -97,8 +97,8 @@ class TestGameOfLife(unittest.TestCase):
         self.assertEquals(map[5][5], 0)
 
     # Survival
-    def test_survival_two_neighboors(self):
-        # Two neighboors
+    def test_survival_two_neighbors(self):
+        # Two neighbors
         self.game_of_life.spawn(5, 5)
         self.game_of_life.spawn(5, 6)
         self.game_of_life.spawn(6, 5)
@@ -108,8 +108,8 @@ class TestGameOfLife(unittest.TestCase):
         map = self.game_of_life.get_map()
         self.assertEquals(map[5][5], 1)
 
-    def test_survival_three_neighboors(self):
-        # Three neighboors
+    def test_survival_three_neighbors(self):
+        # Three neighbors
         self.game_of_life.spawn(5, 5)
         self.game_of_life.spawn(5, 6)
         self.game_of_life.spawn(6, 5)
@@ -122,7 +122,7 @@ class TestGameOfLife(unittest.TestCase):
 
     # Birth
     def test_birth(self):
-        # Three neighboors
+        # Three neighbors
         self.game_of_life.spawn(5, 6)
         self.game_of_life.spawn(6, 5)
         self.game_of_life.spawn(4, 5)
