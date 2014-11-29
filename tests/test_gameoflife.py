@@ -1,8 +1,7 @@
 import unittest
 from gameoflife.gameoflife import GameOfLife
 
-
-class GameOfLifeTest(unittest.TestCase):
+class TestGameOfLife(unittest.TestCase):
     def setUp(self):
         self.game_of_life = GameOfLife(10, 10)
         self.game_of_life.initialize_map()

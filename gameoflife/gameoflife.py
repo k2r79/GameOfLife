@@ -1,6 +1,4 @@
-from operator import ne
 from random import randrange
-
 
 class GameOfLife():
     map = []
